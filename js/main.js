@@ -15,7 +15,7 @@ function onInit() {
 
     renderImgs()
     renderCanvas()
-    addListeners()
+    // addListeners()
     // resizeCanvas()
 
     window.addEventListener('resize', () => {
@@ -26,6 +26,7 @@ function onInit() {
 function renderCanvas() {
     gCtx.fillStyle = '#ede5ff'
     gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height)
+
 }
 
 function renderImgs() {
@@ -55,88 +56,10 @@ function getSize() {
 }
 
 function renderMeme() {
-    // drawImg(gMeme.selectedImage)
-    gCtx.font = gMeme.lines[0].size + "px Arial"
-    gCtx.fillText(gMeme.lines[0].txt, 50, 50)
-    gCtx.fillStyle = gMeme.lines[0].color
-    console.log(gMeme.lines[0].size)
+    drawImg(gMeme.selectedImage)
 }
 
-
-function addListeners() {
-    gElCanvas.addEventListener('mousedown', onMouseDown)
-    gElCanvas.addEventListener('mousemove', onMouseMove)
-    gElCanvas.addEventListener('mouseup', onMouseUp)
+function downloadImg(elLink) {
+    const imgContent = gElCanvas.toDataURL('image/jpeg') // image/jpeg the default format
+    elLink.href = imgContent
 }
-
-
-function onMouseDown(event) {
-    const mouseX = event.offsetX;
-    const mouseY = event.offsetY;
-    for (let i = 0; i < gMeme.lines.length; i++) {
-        const line = gMeme.lines[i];
-        if (isPointInsideText(mouseX, mouseY, line)) {
-            gIsDragging = true;
-            gDraggedLineIdx = i;
-            gPrevMouseX = mouseX;
-            gPrevMouseY = mouseY;
-            break;
-        }
-    }
-}
-
-function onMouseMove(event) {
-    if (!gIsDragging) return;
-    const mouseX = event.offsetX;
-    const mouseY = event.offsetY;
-    const line = gMeme.lines[gDraggedLineIdx];
-    const dx = mouseX - gPrevMouseX;
-    const dy = mouseY - gPrevMouseY;
-    line.x += dx;
-    line.y += dy;
-    gPrevMouseX = mouseX;
-    gPrevMouseY = mouseY;
-    renderMeme();
-}
-
-function onMouseUp() {
-    gIsDragging = false;
-    gDraggedLineIdx = -1;
-}
-
-function isPointInsideText(x, y, line) {
-    const textWidth = gCtx.measureText(line.txt).width;
-    return (
-        x >= line.x &&
-        x <= line.x + textWidth &&
-        y >= line.y - line.size &&
-        y <= line.y
-    );
-}
-// function addListeners() {
-//     addMouseListeners()
-//     addTouchListeners()
-// }
-
-// function addMouseListeners() {
-//     gElCanvas.addEventListener('mousedown', onDown)
-//     gElCanvas.addEventListener('mousemove', onMove)
-//     gElCanvas.addEventListener('mouseup', onUp)
-// }
-
-// function addTouchListeners() {
-//     gElCanvas.addEventListener('touchstart', onDown)
-//     gElCanvas.addEventListener('touchmove', onMove)
-//     gElCanvas.addEventListener('touchend', onUp)
-// }
-
-// function getMeasure() {
-//     return gCtx.measureText(gMeme.lines[0].txt).width
-// }
-
-
-
-// function resizeCanvas() {
-//     const elContainer = document.querySelector('.canvas-container')
-//     gElCanvas.width = elContainer.offsetWidth
-// }

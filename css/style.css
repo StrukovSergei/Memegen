@@ -53,9 +53,10 @@ canvas {
 }
 
 .choose-title {
-    
+
     text-align: center;
 }
+
 
 .btn-gallery {
     display: block;
@@ -63,8 +64,39 @@ canvas {
     text-align: center;
     margin-top: 20px;
     display: none;
+    cursor: pointer;
+}
+
+.btn-facebook {
+    background-color: rgb(109, 109, 252);
+    width: 30px;
+    height: 30px;
+    background-image: url('ICONS/facebook-logo.png');
+    background-size: cover;
+    background-position: center center;
+    cursor: pointer;
+}
+
+.btn-download {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #4CAF50;
+    color: white;
+
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
 .hidden {
+    display: none;
+}
+
+.buttons {
+
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 20px;
     display: none;
 }

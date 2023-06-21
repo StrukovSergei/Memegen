@@ -19,29 +19,38 @@ function setImgIdx(idx) {
 
 function hideImgs() {
     const elImgs = document.querySelector('.imgs-container')
+    const elBtn = document.querySelector('.buttons')
     const elGalleryBtn = document.querySelector('.btn-gallery')
     const elTitle = document.querySelector('h1')
     elImgs.classList.add('hidden')
     elTitle.classList.add('hidden')
+    elBtn.style.display = 'block'
     elGalleryBtn.style.display = 'block'
-
 }
 
 function showCanvas() {
     const elCanvas = document.querySelector('.canvas-container')
     elCanvas.removeAttribute('hidden')
+    elCanvas.classList.remove('hidden')
 }
 
 function showMemeMaker() {
-    const elCanvas = document.querySelector('.meme-maker')
-    elCanvas.removeAttribute('hidden')
+    const elMemeMaker = document.querySelector('.meme-maker')
+    elMemeMaker.removeAttribute('hidden')
+    elMemeMaker.classList.remove('hidden')
 }
 
 function showGallery() {
+    const elGalleryBtn = document.querySelector('.buttons')
+    const elTitle = document.querySelector('h1')
+    const elMemeMaker = document.querySelector('.meme-maker')
     const elImgs = document.querySelector('.imgs-container')
     const elCanvas = document.querySelector('.canvas-container')
+    elTitle.classList.remove('hidden')
+    elMemeMaker.classList.add('hidden')
     elCanvas.classList.add('hidden')
     elImgs.classList.remove('hidden')
+    elGalleryBtn.style.display = 'none'
 }
 
 function setColor(color) {
@@ -59,31 +68,4 @@ function setSize(size) {
     renderMeme()
 }
 
-
-// function isTextClicked(clickedPos) {
-//     const { pos } = gMeme.lines[0]
-//     // Calc the distance between two dots
-//     const distance = Math.sqrt((pos.x - clickedPos.x) ** 2 + (pos.y - clickedPos.y) ** 2)
-//     // console.log('distance', distance)
-//     //If its smaller then the radius of the circle we are inside
-//     return distance <= gMeme.lines[0].size
-//   }
-
-// function setDrag() {
-//     if (gMeme.lines[0].isDrag) {
-//         gMeme.lines[0].isDrag = false
-//     } else {
-//         gMeme.lines[0].isDrag = true
-//     }
-// }
-
-// function checkDrag() {
-//     gMeme.lines[0].isDrag ? true : false
-// }
-
-
-// function moveText(dx, dy) {
-//     gMeme.lines[0].pos.x += dx
-//     gMeme.lines[0].pos.y += dy
-//   }
 
