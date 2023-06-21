@@ -1,0 +1,70 @@
+img {
+    cursor: pointer;
+    max-width: 150px;
+    max-height: 150px;
+    margin-top: 10px;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    clear: both;
+}
+
+.imgs-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.imgs-container img {
+    cursor: pointer;
+}
+
+.meme-maker {
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+.canvas-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+canvas {
+    border: 1px solid #ccc;
+    margin: 0 auto;
+}
+
+.choose-title {
+    
+    text-align: center;
+}
+
+.btn-gallery {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 20px;
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
