@@ -50,9 +50,8 @@ function getText() {
     setText(elTxt.value)
 }
 
-function getSize() {
-    const elSize = document.querySelector('#size')
-    setSize(elSize.value)
+function getSize(size) {
+    setSize(size)
 }
 
 function renderMeme() {
@@ -62,4 +61,9 @@ function renderMeme() {
 function downloadImg(elLink) {
     const imgContent = gElCanvas.toDataURL('image/jpeg') // image/jpeg the default format
     elLink.href = imgContent
+}
+
+function switchLine() {
+    gMeme.selectedLineIndex = (gMeme.selectedLineIndex + 1) % gMeme.lines.length
+    renderMeme();
 }

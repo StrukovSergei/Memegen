@@ -6,7 +6,13 @@ let gMeme = {
         {
             txt: '',
             size: "40",
-            color: 'black',
+            color: 'white',
+            isDrag: false
+        },
+        {
+            txt: '',
+            size: "40",
+            color: 'white',
             isDrag: false
         }
     ],
@@ -59,12 +65,14 @@ function setColor(color) {
 }
 
 function setText(txt) {
-    gMeme.lines[0].txt = txt
+    gMeme.lines[gMeme.selectedLineIndex].txt = txt
     renderMeme()
 }
 
 function setSize(size) {
-    gMeme.lines[0].size = size
+    // const sizeNum = parseInt(size)
+    var num = parseInt(gMeme.lines[0].size) + size
+    gMeme.lines[0].size = num.toString()
     renderMeme()
 }
 
