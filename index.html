@@ -11,21 +11,23 @@
 <body onload="onInit()">
     <img class="logo" src="style-imgs/logo-banner.png" alt="">
     <div hidden class="meme-maker">
-        <input type="text" id="textInput" placeholder="Enter text" onchange="getText()">
-        <input title="Change color" type="color" id="color" onchange="getColor()">
-        <!-- <input type="number" id="size" placeholder="text size(default=40)" onchange="getSize()"> -->
+        <input type="text" id="textInput" placeholder="Enter text" oninput="getText()">
+        <input title="Change color" type="color" id="color" oninput="getColor()">
+        <!-- <input type="number" id="size" placeholder="text size(default=40)" oninput="getSize()"> -->
         <button title="Increase font size" class="plus-size" onclick="getSize(+5)"></button>
         <button title="Decrease font size" class="minus-size" onclick="getSize(-5)"></button>
         <button title="Switch between lines" class="btn-switch-line" onclick="switchLine()"></button>
+        <button id="saveBtn" title="Save your meme" class="btn-save" onclick="saveMeme()">Save</button>
 
     </div>
     <div hidden class="canvas-container">
         <canvas id="my-canvas" height="400" width="400">
         </canvas>
     </div>
-
+<button class="show-saved" onclick="showSavedMemes()">Saved Memes</button>
     <h1 class="choose-title">Choose a picture</h1>
-
+    <!-- <button class="random-meme" onclick="getRandomMeme()">X</button> -->
+    <a href="#" class="random-meme" alt="SURPRISE" onclick="getRandomMeme()"></a>
     <div class="imgs-container"></div>
 
     <div class="buttons">
@@ -33,7 +35,11 @@
         <a title="Download your meme" href="#" class="btn-download" onclick="downloadImg(this)" download="my-img.jpg">Download</a>
         <button title="Share your meme on facebook" class="btn-facebook" onclick="onUploadImg()"></button>
     </div>
+
+    <div class="saved-memes-container"></div>
+
     <script src="js/main.js"></script>
+    <script src="js/util.js"></script>
     <script src="js/memeController.js"></script>
     <script src="js/memeService.js"></script>
     <script src="js/uploadservice.js"></script>

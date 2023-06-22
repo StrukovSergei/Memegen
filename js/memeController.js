@@ -34,8 +34,8 @@ function implementText() {
     gCtx.strokeStyle = 'black'
     gCtx.font = gMeme.lines[1].size + "px Impact"
     gCtx.fillStyle = gMeme.lines[1].color
-    gCtx.fillText(gMeme.lines[1].txt, gElCanvas.width / 2, 270)
-    gCtx.strokeText(gMeme.lines[1].txt, gElCanvas.width / 2, 270)
+    gCtx.fillText(gMeme.lines[1].txt, gElCanvas.width / 2, 370)
+    gCtx.strokeText(gMeme.lines[1].txt, gElCanvas.width / 2, 370)
 }
 
 function renderSelectedLineFrame() {

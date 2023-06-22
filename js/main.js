@@ -67,3 +67,43 @@ function switchLine() {
     gMeme.selectedLineIndex = (gMeme.selectedLineIndex + 1) % gMeme.lines.length
     renderMeme();
 }
+
+function getRandomMeme() {
+    drawImg(getRandomIntInclusive(100, 110))
+
+}
+
+function saveMeme() {
+    const memeData = {
+        selectedImage: gMeme.selectedImage,
+        lines: gMeme.lines,
+        selectedLineIndex: gMeme.selectedLineIndex
+    }
+    const savedMemes = JSON.parse(localStorage.getItem('savedMemes')) || []
+    savedMemes.push(memeData)
+    localStorage.setItem('savedMemes', JSON.stringify(savedMemes))
+    alert('Meme saved successfully!')
+}
+
+function showSavedMemes() {
+    const elSaved = document.querySelector('.saved-memes-container')
+    elSaved.style.display = 'block'
+
+    const savedMemes = JSON.parse(localStorage.getItem('savedMemes')) || []
+    const savedMemesContainer = document.querySelector('.saved-memes-container')
+    savedMemesContainer.innerHTML = ''
+
+    savedMemes.forEach((meme, index) => {
+        const memeElement = document.createElement('div')
+        memeElement.classList.add('saved-meme')
+        memeElement.innerHTML = `
+        <img class="saved" width="220" height="165" src="imgs/${meme.selectedImage}.jpg" alt="Saved Meme ${index + 1}">
+        <div class="meme-details">
+          <h3>Meme ${index + 1}</h3>
+          <p>Lines: ${meme.lines.length}</p>
+        </div>
+      `
+        savedMemesContainer.appendChild(memeElement)
+    })
+    hideImgs()
+}
