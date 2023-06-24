@@ -11,8 +11,8 @@ function drawImg(idx) {
         if (gMeme.lines[0].txt) {
             implementText()
         }
+        renderSelectedLineFrame()
     }
-    renderSelectedLineFrame()
     setImgIdx(idx)
     hideImgs()
     showCanvas()
@@ -38,13 +38,30 @@ function implementText() {
     gCtx.strokeText(gMeme.lines[1].txt, gElCanvas.width / 2, 370)
 }
 
-function renderSelectedLineFrame() {
-    const selectedLine = gMeme.lines[gMeme.selectedLineIndex]
-
-    gCtx.strokeRect(
-        0,
-        selectedLine.size * gMeme.selectedLineIndex,
-        gElCanvas.width,
-        selectedLine.size
-    )
-}
+// function renderSelectedLineFrame() {
+//     const selectedLine = gMeme.lines[gMeme.selectedLineIndex]
+  
+//     gCtx.strokeStyle = 'black'
+//     gCtx.lineWidth = 2
+//     gCtx.font = selectedLine.size + 'px Impact'
+//     const textMetrics = gCtx.measureText(selectedLine.txt)
+  
+//     const x = gElCanvas.width / 2 - textMetrics.width / 2 - 10
+//     const y = selectedLine.size * gMeme.selectedLineIndex - selectedLine.size - 5
+//     const width = textMetrics.width + 20
+//     const height = selectedLine.size + 10
+  
+//     // Draw the border box
+//     gCtx.beginPath()
+//     gCtx.fillStyle = 'rgba(0, 0, 0, 0.2)'
+//     gCtx.fillRect(x, y + 60, width, 50)
+//     gCtx.stroke()
+//   }
+  
+  
+  
+  
+  
+  
+  
+  

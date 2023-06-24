@@ -65,8 +65,9 @@ function downloadImg(elLink) {
 
 function switchLine() {
     gMeme.selectedLineIndex = (gMeme.selectedLineIndex + 1) % gMeme.lines.length
-    renderMeme();
-}
+    renderMeme()
+    renderSelectedLineFrame()
+  }
 
 function getRandomMeme() {
     drawImg(getRandomIntInclusive(100, 110))

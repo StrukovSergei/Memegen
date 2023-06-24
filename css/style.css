@@ -191,10 +191,16 @@ canvas {
     display: block;
     margin: 0 auto;
     text-align: center;
+    margin-top: 15px;
+    background-color: #430246;
+    color: white;
+    border-radius: 15px;
+border-color: white;
 
     /* display: none; */
 }
 
 .saved-memes-container{
     display: block;
+    
 }
