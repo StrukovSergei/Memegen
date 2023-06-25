@@ -26,14 +26,12 @@ function setImgIdx(idx) {
 function hideImgs() {
     const elImgs = document.querySelector('.imgs-container')
     const elBtn = document.querySelector('.buttons')
-    const elGalleryBtn = document.querySelector('.btn-gallery')
     const elRandomBtn = document.querySelector('.random-meme')
     const elTitle = document.querySelector('h1')
     elImgs.classList.add('hidden')
     elTitle.classList.add('hidden')
     elRandomBtn.style.display = 'none'
     elBtn.style.display = 'block'
-    elGalleryBtn.style.display = 'block'
 }
 
 function showCanvas() {
@@ -49,7 +47,7 @@ function showMemeMaker() {
 }
 
 function showGallery() {
-    const elGalleryBtn = document.querySelector('.buttons')
+    const elBtn = document.querySelector('.buttons')
     const elTitle = document.querySelector('h1')
     const elMemeMaker = document.querySelector('.meme-maker')
     const elImgs = document.querySelector('.imgs-container')
@@ -62,7 +60,7 @@ function showGallery() {
     elMemeMaker.classList.add('hidden')
     elCanvas.classList.add('hidden')
     elImgs.classList.remove('hidden')
-    elGalleryBtn.style.display = 'none'
+    elBtn.style.display = 'none'
     elSaved.style.display = 'none'
 }
 
@@ -84,3 +82,7 @@ function setSize(size) {
 }
 
 
+function hideGeneral(){
+    const elGeneral = document.querySelector('.general-meme')
+    elGeneral.style.display = 'none'
+}
